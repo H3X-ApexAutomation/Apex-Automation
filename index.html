@@ -3,50 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Apex Automation — Coming Soon</title>
+    <title>Apex Automation — AI-Powered Business Automation</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
     <style>
-        /* ============================================
-           ROOT VARIABLES
-           ============================================ */
         :root {
             --primary: #6C3CE1;
             --primary-light: #8B5CF6;
             --primary-dark: #4F29A8;
             --secondary: #00D4FF;
+            --gold: #FFD700;
             --dark: #0A0A0A;
             --dark-card: #111111;
             --dark-border: #1E1E1E;
             --text-primary: #FFFFFF;
             --text-secondary: #A0A0A0;
             --text-muted: #666666;
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font: 'Inter', sans-serif;
             --radius: 16px;
             --shadow: 0 20px 60px rgba(0,0,0,0.5);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font);
-            background: var(--dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font); background: var(--dark); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; line-height: 1.6; }
 
         .bg-gradient {
             position: fixed;
@@ -60,17 +43,15 @@
             z-index: -1;
         }
 
-        /* ============================================
-           NAVBAR
-           ============================================ */
+        /* ===== NAVBAR ===== */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 16px 40px;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(10,10,10,0.9);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -110,8 +91,8 @@
             font-size: 0.85rem;
             font-weight: 500;
             transition: var(--transition);
-            position: relative;
             cursor: pointer;
+            position: relative;
         }
 
         .nav-links a::after {
@@ -125,17 +106,12 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
 
         .btn-nav {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
@@ -146,7 +122,7 @@
         }
 
         .btn-nav:hover {
-            background: rgba(108, 60, 225, 0.2);
+            background: rgba(108,60,225,0.2);
             border-color: var(--primary);
         }
 
@@ -160,9 +136,7 @@
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
         }
 
-        /* ============================================
-           BUTTONS
-           ============================================ */
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -171,59 +145,38 @@
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.9rem;
-            text-decoration: none;
             border: none;
             cursor: pointer;
             transition: var(--transition);
             font-family: var(--font);
+            text-decoration: none;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
-            box-shadow: 0 4px 20px rgba(108, 60, 225, 0.3);
+            box-shadow: 0 4px 20px rgba(108,60,225,0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(108, 60, 225, 0.5);
+            box-shadow: 0 8px 40px rgba(108,60,225,0.5);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             transform: translateY(-3px);
         }
 
-        .btn-success {
-            background: linear-gradient(135deg, #00C853, #00E676);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(0, 200, 83, 0.3);
-        }
+        .btn-block { width: 100%; justify-content: center; }
 
-        .btn-success:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(0, 200, 83, 0.5);
-        }
-
-        .btn-block {
-            width: 100%;
-            justify-content: center;
-        }
-
-        .btn-sm {
-            padding: 8px 18px;
-            font-size: 0.75rem;
-        }
-
-        /* ============================================
-           HERO
-           ============================================ */
+        /* ===== HERO ===== */
         .hero {
             text-align: center;
             padding: 80px 20px 60px;
@@ -233,8 +186,8 @@
 
         .hero .badge {
             display: inline-block;
-            background: rgba(108, 60, 225, 0.15);
-            border: 1px solid rgba(108, 60, 225, 0.3);
+            background: rgba(108,60,225,0.15);
+            border: 1px solid rgba(108,60,225,0.3);
             padding: 6px 20px;
             border-radius: 50px;
             font-size: 0.75rem;
@@ -263,28 +216,14 @@
             line-height: 1.8;
         }
 
-        .hero .status {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: -10px;
-            margin-bottom: 30px;
-        }
-
-        .hero .status i {
-            color: var(--secondary);
-            margin-right: 6px;
-        }
-
-        .btn-group {
+        .hero .btn-group {
             display: flex;
             gap: 14px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        /* ============================================
-           CONTAINER
-           ============================================ */
+        /* ===== SECTIONS ===== */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -316,47 +255,73 @@
             margin-bottom: 8px;
         }
 
-        /* ============================================
-           PROGRESS BAR
-           ============================================ */
-        .progress-container {
-            max-width: 480px;
-            margin: 0 auto 30px;
+        /* ===== FEATURES ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 20px;
         }
 
-        .progress-bar {
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius);
+            padding: 30px 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: rgba(108,60,225,0.3);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card .image-placeholder {
             width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
+            height: 180px;
+            border-radius: 12px;
+            margin-bottom: 16px;
             overflow: hidden;
-        }
-
-        .progress-bar .fill {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            animation: progressPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes progressPulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
-
-        .progress-label {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            font-size: 0.7rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
             color: var(--text-muted);
+            border: 1px solid var(--dark-border);
         }
 
-        /* ============================================
-           PRICING
-           ============================================ */
+        .feature-card .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-card h3 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PRICING ===== */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -365,15 +330,11 @@
         }
 
         @media (max-width: 992px) {
-            .pricing-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .pricing-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 600px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
 
         .pricing-card {
@@ -384,18 +345,17 @@
             text-align: center;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
         }
 
         .pricing-card:hover {
-            border-color: rgba(108, 60, 225, 0.3);
+            border-color: rgba(108,60,225,0.3);
             transform: translateY(-4px);
             box-shadow: var(--shadow);
         }
 
         .pricing-card.featured {
             border-color: var(--primary);
-            box-shadow: 0 0 40px rgba(108, 60, 225, 0.15);
+            box-shadow: 0 0 40px rgba(108,60,225,0.15);
         }
 
         .pricing-card.featured::before {
@@ -407,7 +367,7 @@
             font-weight: 700;
             padding: 4px 12px;
             border-radius: 50px;
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255,215,0,0.15);
             color: var(--gold);
         }
 
@@ -422,7 +382,6 @@
         .pricing-card .price {
             font-size: 2.8rem;
             font-weight: 900;
-            color: var(--text-primary);
             margin: 12px 0 4px;
         }
 
@@ -430,12 +389,6 @@
             font-size: 1rem;
             color: var(--text-muted);
             font-weight: 400;
-        }
-
-        .pricing-card .price-desc {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 20px;
         }
 
         .pricing-card .features {
@@ -446,7 +399,7 @@
 
         .pricing-card .features li {
             padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             color: var(--text-secondary);
             font-size: 0.85rem;
             display: flex;
@@ -457,58 +410,67 @@
             color: var(--primary-light);
             margin-right: 12px;
             width: 18px;
-            text-align: center;
         }
 
-        .pricing-card .btn {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* ============================================
-           PACKAGES
-           ============================================ */
-        .package-grid {
+        /* ===== PEOPLE IMAGES / WORK SCENES ===== */
+        .people-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             margin-top: 20px;
         }
 
-        .package-card {
+        @media (max-width: 768px) {
+            .people-grid { grid-template-columns: 1fr; }
+        }
+
+        .people-card {
             background: var(--dark-card);
             border: 1px solid var(--dark-border);
             border-radius: var(--radius);
-            padding: 24px 20px;
-            text-align: center;
+            overflow: hidden;
             transition: var(--transition);
-            cursor: pointer;
         }
 
-        .package-card:hover {
-            border-color: var(--primary);
+        .people-card:hover {
             transform: translateY(-4px);
+            border-color: rgba(108,60,225,0.3);
             box-shadow: var(--shadow);
         }
 
-        .package-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
+        .people-card .image-placeholder {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--dark-border);
         }
 
-        .package-card h4 {
+        .people-card .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .people-card .info {
+            padding: 20px 24px;
+        }
+
+        .people-card .info h4 {
             font-weight: 700;
             margin-bottom: 4px;
         }
 
-        .package-card p {
+        .people-card .info p {
             color: var(--text-muted);
             font-size: 0.85rem;
         }
 
-        /* ============================================
-           TESTIMONIALS
-           ============================================ */
+        /* ===== TESTIMONIALS ===== */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -523,7 +485,7 @@
         }
 
         .testimonial-card .stars {
-            color: #FFD700;
+            color: var(--gold);
             margin-bottom: 8px;
             font-size: 0.9rem;
         }
@@ -549,9 +511,7 @@
             display: block;
         }
 
-        /* ============================================
-           WAITLIST
-           ============================================ */
+        /* ===== WAITLIST ===== */
         .waitlist-section {
             background: var(--dark-card);
             border: 1px solid var(--dark-border);
@@ -583,7 +543,7 @@
             padding: 12px 18px;
             border-radius: 10px;
             border: 1px solid var(--dark-border);
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.03);
             color: #fff;
             font-size: 0.9rem;
             font-family: var(--font);
@@ -594,23 +554,17 @@
         .waitlist-form input:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(108, 60, 225, 0.15);
+            box-shadow: 0 0 0 3px rgba(108,60,225,0.15);
         }
 
-        .waitlist-form input::placeholder {
-            color: var(--text-muted);
-        }
-
-        /* ============================================
-           MODAL
-           ============================================ */
+        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0,0,0,0.85);
             backdrop-filter: blur(12px);
             z-index: 5000;
             display: none;
@@ -618,9 +572,7 @@
             align-items: center;
         }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
         .modal {
             background: var(--dark-card);
@@ -634,14 +586,8 @@
         }
 
         @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .modal .close-modal {
@@ -659,31 +605,36 @@
             transform: rotate(90deg);
         }
 
-        .modal .modal-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-        }
+        .modal .modal-icon { font-size: 3rem; margin-bottom: 12px; }
+        .modal h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .modal p { color: var(--text-secondary); margin-bottom: 20px; line-height: 1.7; }
+        .modal .btn { width: 100%; justify-content: center; }
 
-        .modal h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .modal p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .modal .btn {
+        .modal input, .modal textarea {
             width: 100%;
-            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--dark-border);
+            background: rgba(255,255,255,0.03);
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: var(--font);
+            margin-bottom: 12px;
+            transition: var(--transition);
         }
 
-        /* ============================================
-           TOAST
-           ============================================ */
+        .modal input:focus, .modal textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108,60,225,0.15);
+        }
+
+        .modal textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* ===== TOAST ===== */
         .toast-container {
             position: fixed;
             bottom: 30px;
@@ -702,27 +653,19 @@
             font-size: 0.85rem;
             animation: slideUp 0.4s ease-out;
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.05);
             box-shadow: var(--shadow);
-            background: rgba(0, 200, 83, 0.12);
-            border-color: rgba(0, 200, 83, 0.25);
+            background: rgba(0,200,83,0.12);
+            border-color: rgba(0,200,83,0.25);
             color: #00E676;
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============================================
-           FOOTER
-           ============================================ */
+        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -751,82 +694,44 @@
             transform: translateY(-2px);
         }
 
-        .footer a {
-            color: var(--primary-light);
-            text-decoration: none;
-        }
-
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .navbar {
-                padding: 14px 20px;
-            }
+            .hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .navbar { padding: 14px 20px; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            .container {
-                padding: 0 16px 30px;
-            }
-            .waitlist-form input {
-                min-width: 100%;
-            }
-            .modal {
-                padding: 24px;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .people-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 16px 30px; }
+            .waitlist-form input { min-width: 100%; }
+            .modal { padding: 24px; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 0.95rem;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-            }
-            .pricing-card {
-                padding: 24px 20px;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 0.95rem; }
+            .btn { padding: 10px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================
-    BACKGROUND
-    ============================================ -->
+    <!-- BG -->
     <div class="bg-gradient"></div>
 
-    <!-- ============================================
-    NAVBAR
-    ============================================ -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <a href="#" class="nav-logo">
             <span class="logo-icon">▲</span>
             Apex Automation
         </a>
         <ul class="nav-links">
+            <li><a onclick="scrollToSection('features')">Features</a></li>
             <li><a onclick="scrollToSection('pricing')">Pricing</a></li>
-            <li><a onclick="scrollToSection('packages')">Packages</a></li>
             <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
             <li><a onclick="openModal('contact')">Contact</a></li>
         </ul>
@@ -840,38 +745,95 @@
         </div>
     </nav>
 
-    <!-- ============================================
-    HERO
-    ============================================ -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="badge"><i class="fas fa-code"></i> In Development</div>
-        <h1>Coming Soon</h1>
+        <h1>Automate Your Business.<br/>Save Hours Every Day.</h1>
         <p>AI-powered automation for your business — custom workflows, document processing, and intelligent support.</p>
-        <div class="status">
-            <i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle;"></i> Currently in active development
-        </div>
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div class="fill"></div>
-            </div>
-            <div class="progress-label">
-                <span>Launch Progress</span>
-                <span>65%</span>
-            </div>
-        </div>
         <div class="btn-group">
             <button class="btn btn-primary" onclick="openModal('waitlist')">
                 <i class="fas fa-rocket"></i> Get Notified
             </button>
-            <button class="btn btn-secondary" onclick="scrollToSection('pricing')">
-                <i class="fas fa-arrow-right"></i> View Pricing
+            <button class="btn btn-secondary" onclick="scrollToSection('features')">
+                <i class="fas fa-arrow-right"></i> Learn More
             </button>
         </div>
     </section>
 
-    <!-- ============================================
-    PRICING
-    ============================================ -->
+    <!-- ===== FEATURES ===== -->
+    <div class="container" id="features">
+        <div class="section-header">
+            <div class="subtitle">Features</div>
+            <h2>What We Offer</h2>
+            <p>AI-powered solutions designed to save you time and money.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-file-invoice" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="icon">📄</div>
+                <h3>Document Processing</h3>
+                <p>Extract data from invoices, receipts, contracts, and forms automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-robot" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="icon">🤖</div>
+                <h3>Customer Support AI</h3>
+                <p>Handle 60-80% of support tickets automatically with intelligent AI agents.</p>
+            </div>
+            <div class="feature-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="icon">⚡</div>
+                <h3>Custom Workflows</h3>
+                <p>Tailored automation solutions built specifically for your business.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PEOPLE / WORK SCENES ===== -->
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">How It Works</div>
+            <h2>AI at Work</h2>
+            <p>See how AI transforms everyday business tasks.</p>
+        </div>
+        <div class="people-grid">
+            <div class="people-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-users" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="info">
+                    <h4>📊 Data Entry Automation</h4>
+                    <p>AI extracts data from documents and enters it into your systems automatically.</p>
+                </div>
+            </div>
+            <div class="people-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-headset" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="info">
+                    <h4>💬 Smart Customer Support</h4>
+                    <p>AI agents handle customer queries, freeing up your team for complex issues.</p>
+                </div>
+            </div>
+            <div class="people-card">
+                <div class="image-placeholder">
+                    <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-light);"></i>
+                </div>
+                <div class="info">
+                    <h4>📈 Real-Time Analytics</h4>
+                    <p>AI analyzes your business data and provides actionable insights instantly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PRICING ===== -->
     <div class="container" id="pricing">
         <div class="section-header">
             <div class="subtitle">Pricing</div>
@@ -882,19 +844,17 @@
             <div class="pricing-card">
                 <div class="plan-name">Starter</div>
                 <div class="price">£199 <span>/mo</span></div>
-                <div class="price-desc">Perfect for small businesses</div>
                 <ul class="features">
                     <li><i class="fas fa-check-circle"></i> 1 custom workflow</li>
                     <li><i class="fas fa-check-circle"></i> Monthly maintenance</li>
                     <li><i class="fas fa-check-circle"></i> Email support</li>
                     <li><i class="fas fa-check-circle"></i> 5 hours consulting</li>
                 </ul>
-                <button class="btn btn-secondary" onclick="openModal('comingsoon')">Get Started</button>
+                <button class="btn btn-secondary btn-block" onclick="openModal('comingsoon')">Get Started</button>
             </div>
             <div class="pricing-card featured">
                 <div class="plan-name">Business</div>
                 <div class="price">£599 <span>/mo</span></div>
-                <div class="price-desc">Most popular for growing teams</div>
                 <ul class="features">
                     <li><i class="fas fa-check-circle"></i> 5 custom workflows</li>
                     <li><i class="fas fa-check-circle"></i> Weekly maintenance</li>
@@ -902,12 +862,11 @@
                     <li><i class="fas fa-check-circle"></i> 15 hours consulting</li>
                     <li><i class="fas fa-check-circle"></i> Monthly optimization report</li>
                 </ul>
-                <button class="btn btn-primary" onclick="openModal('comingsoon')">Get Started</button>
+                <button class="btn btn-primary btn-block" onclick="openModal('comingsoon')">Get Started</button>
             </div>
             <div class="pricing-card">
                 <div class="plan-name">Enterprise</div>
                 <div class="price">£1,499 <span>/mo</span></div>
-                <div class="price-desc">For large-scale operations</div>
                 <ul class="features">
                     <li><i class="fas fa-check-circle"></i> Unlimited workflows</li>
                     <li><i class="fas fa-check-circle"></i> 24/7 monitoring</li>
@@ -915,52 +874,12 @@
                     <li><i class="fas fa-check-circle"></i> Unlimited consulting</li>
                     <li><i class="fas fa-check-circle"></i> Custom AI agents</li>
                 </ul>
-                <button class="btn btn-secondary" onclick="openModal('comingsoon')">Contact Sales</button>
+                <button class="btn btn-secondary btn-block" onclick="openModal('comingsoon')">Contact Sales</button>
             </div>
         </div>
     </div>
 
-    <!-- ============================================
-    PACKAGES
-    ============================================ -->
-    <div class="container" id="packages">
-        <div class="section-header">
-            <div class="subtitle">Solutions</div>
-            <h2>Custom Automation Packages</h2>
-            <p>Pick a package or build your own tailored solution.</p>
-        </div>
-        <div class="package-grid">
-            <div class="package-card" onclick="openModal('comingsoon')">
-                <div class="icon">📄</div>
-                <h4>Document Processing</h4>
-                <p>Extract data from invoices, receipts, contracts</p>
-            </div>
-            <div class="package-card" onclick="openModal('comingsoon')">
-                <div class="icon">🤖</div>
-                <h4>Customer Support AI</h4>
-                <p>Handle 60-80% of tickets automatically</p>
-            </div>
-            <div class="package-card" onclick="openModal('comingsoon')">
-                <div class="icon">🛒</div>
-                <h4>E-Commerce Automation</h4>
-                <p>Order fulfillment + inventory sync</p>
-            </div>
-            <div class="package-card" onclick="openModal('comingsoon')">
-                <div class="icon">🎯</div>
-                <h4>Lead Generation</h4>
-                <p>Automate lead capture + CRM entry</p>
-            </div>
-            <div class="package-card" onclick="openModal('comingsoon')">
-                <div class="icon">⚡</div>
-                <h4>Custom Package</h4>
-                <p>Build a tailored solution for your business</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============================================
-    TESTIMONIALS
-    ============================================ -->
+    <!-- ===== TESTIMONIALS ===== -->
     <div class="container" id="testimonials">
         <div class="section-header">
             <div class="subtitle">Testimonials</div>
@@ -975,20 +894,18 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Our support team now handles 3x more tickets with half the staff. Incredible ROI in the first month."</p>
+                <p>"Our support team now handles 3x more tickets with half the staff. Incredible ROI."</p>
                 <div class="author">— James R.<span class="author-title">Customer Support Lead</span></div>
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"The custom automation package paid for itself in the first month. Highly recommend to any e-commerce owner."</p>
+                <p>"The custom automation package paid for itself in the first month. Highly recommend."</p>
                 <div class="author">— Lisa M.<span class="author-title">E-Commerce Owner</span></div>
             </div>
         </div>
     </div>
 
-    <!-- ============================================
-    WAITLIST
-    ============================================ -->
+    <!-- ===== WAITLIST ===== -->
     <div class="container">
         <div class="waitlist-section">
             <h3>🚀 Get Early Access</h3>
@@ -1002,9 +919,7 @@
         </div>
     </div>
 
-    <!-- ============================================
-    FOOTER
-    ============================================ -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="social-links">
             <a href="https://t.me/H3X_cpm" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -1017,9 +932,7 @@
         </p>
     </footer>
 
-    <!-- ============================================
-    COMING SOON MODAL
-    ============================================ -->
+    <!-- ===== MODALS ===== -->
     <div class="modal-overlay" id="comingSoonModal">
         <div class="modal">
             <button class="close-modal" onclick="closeModal('comingSoonModal')">&times;</button>
@@ -1035,52 +948,40 @@
         </div>
     </div>
 
-    <!-- ============================================
-    WAITLIST MODAL
-    ============================================ -->
     <div class="modal-overlay" id="waitlistModal">
         <div class="modal">
             <button class="close-modal" onclick="closeModal('waitlistModal')">&times;</button>
             <div class="modal-icon">📩</div>
             <h2>Get Notified</h2>
             <p>Enter your email and we'll let you know when we launch.</p>
-            <input type="email" id="modalEmailInput" placeholder="Enter your email" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--dark-border); background:rgba(255,255,255,0.03); color:#fff; font-size:0.9rem; font-family:var(--font); margin-bottom:16px;" />
+            <input type="email" id="modalEmailInput" placeholder="Enter your email" />
             <button class="btn btn-primary btn-block" onclick="modalJoinWaitlist()">
                 <i class="fas fa-paper-plane"></i> Notify Me
             </button>
         </div>
     </div>
 
-    <!-- ============================================
-    CONTACT MODAL
-    ============================================ -->
     <div class="modal-overlay" id="contactModal">
         <div class="modal">
             <button class="close-modal" onclick="closeModal('contactModal')">&times;</button>
             <div class="modal-icon">📩</div>
             <h2>Contact Us</h2>
             <p>We'll get back to you within 24 hours.</p>
-            <input type="text" id="contactNameInput" placeholder="Your Name" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--dark-border); background:rgba(255,255,255,0.03); color:#fff; font-size:0.9rem; font-family:var(--font); margin-bottom:12px;" />
-            <input type="email" id="contactEmailInput" placeholder="Your Email" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--dark-border); background:rgba(255,255,255,0.03); color:#fff; font-size:0.9rem; font-family:var(--font); margin-bottom:12px;" />
-            <textarea id="contactMsgInput" placeholder="How can we help?" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--dark-border); background:rgba(255,255,255,0.03); color:#fff; font-size:0.9rem; font-family:var(--font); min-height:80px; resize:vertical; margin-bottom:16px;"></textarea>
+            <input type="text" id="contactNameInput" placeholder="Your Name" />
+            <input type="email" id="contactEmailInput" placeholder="Your Email" />
+            <textarea id="contactMsgInput" placeholder="How can we help?"></textarea>
             <button class="btn btn-primary btn-block" onclick="submitContact()">
                 <i class="fas fa-paper-plane"></i> Send Message
             </button>
         </div>
     </div>
 
-    <!-- ============================================
-    TOAST
-    ============================================ -->
+    <!-- ===== TOAST ===== -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- ============================================
-    SCRIPT
-    ============================================ -->
+    <!-- ===== SCRIPT ===== -->
     <script>
-        // ============================================
-        // TOAST
-        // ============================================
+        // ===== TOAST =====
         function showToast(message) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
@@ -1094,45 +995,30 @@
             }, 4000);
         }
 
-        // ============================================
-        // SCROLL
-        // ============================================
+        // ===== SCROLL =====
         function scrollToSection(id) {
             const el = document.getElementById(id);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // ============================================
-        // MODALS
-        // ============================================
+        // ===== MODALS =====
         function openModal(type) {
-            if (type === 'comingsoon') {
-                document.getElementById('comingSoonModal').classList.add('active');
-            } else if (type === 'waitlist') {
-                document.getElementById('waitlistModal').classList.add('active');
-            } else if (type === 'contact') {
-                document.getElementById('contactModal').classList.add('active');
-            }
+            if (type === 'comingsoon') document.getElementById('comingSoonModal').classList.add('active');
+            else if (type === 'waitlist') document.getElementById('waitlistModal').classList.add('active');
+            else if (type === 'contact') document.getElementById('contactModal').classList.add('active');
         }
 
         function closeModal(id) {
             document.getElementById(id).classList.remove('active');
         }
 
-        // Close on backdrop click
         document.querySelectorAll('.modal-overlay').forEach(el => {
             el.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                }
+                if (e.target === this) this.classList.remove('active');
             });
         });
 
-        // ============================================
-        // WAITLIST
-        // ============================================
+        // ===== WAITLIST =====
         function joinWaitlist() {
             const email = document.getElementById('emailInput').value.trim();
             if (!email || !email.includes('@')) {
@@ -1154,9 +1040,7 @@
             closeModal('waitlistModal');
         }
 
-        // ============================================
-        // CONTACT
-        // ============================================
+        // ===== CONTACT =====
         function submitContact() {
             const name = document.getElementById('contactNameInput').value.trim();
             const email = document.getElementById('contactEmailInput').value.trim();
@@ -1174,9 +1058,7 @@
             closeModal('contactModal');
         }
 
-        // ============================================
-        // ENTER KEY
-        // ============================================
+        // ===== ENTER KEY =====
         document.getElementById('emailInput').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') joinWaitlist();
         });
@@ -1185,10 +1067,10 @@
             if (e.key === 'Enter') modalJoinWaitlist();
         });
 
-        console.log('▲ Apex Automation — Coming Soon');
+        console.log('▲ Apex Automation — AI-Powered Business Automation');
         console.log('📩 Contact: @H3X_cpm');
         console.log('🚀 Launching Q1 2025');
     </script>
 
 </body>
-    </html>
+                </html>
