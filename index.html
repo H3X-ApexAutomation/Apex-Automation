@@ -546,19 +546,19 @@
             const email = document.getElementById('emailInput').value.trim();
 
             if (!email) {
-                showToast('❌ Please enter your email address.');
+                showToast('Please enter your email address.');
                 return;
             }
 
             if (!email.includes('@') || !email.includes('.')) {
-                showToast('❌ Please enter a valid email address.');
+                showToast('Please enter a valid email address.');
                 return;
             }
 
             // Here you would send the email to your backend / database
             // For now, just show success
 
-            showToast('✅ You\'re on the list! We\'ll notify you at ' + email);
+            showToast('You\'re on the list! We\'ll notify you at ' + email);
             document.getElementById('emailInput').value = '';
         }
 
@@ -575,4 +575,4 @@
     </script>
 
 </body>
-    </html>
+</html>
